@@ -1,0 +1,28 @@
+# Use root/example user/password credentials
+version: '3.7'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/image/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./src:/var/www/html/
+      - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./docker/hosts/hosts:/etc/hosts
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
