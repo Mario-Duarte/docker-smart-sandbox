@@ -16,6 +16,8 @@ Currently the Dockerfile will install, `wget git zip unzip openssl zlib1g-dev li
 
 It also creates self-sign certificates that are saved onto `/var/www/conf/` folder to be used by the server, *you may see a warning page when visiting the site with __https__, if so have a look at [this article](https://medium.com/@dblazeski/chrome-bypass-net-err-cert-invalid-for-development-daefae43eb12)  on how to bypass the error on chrome. I would recommend replacing these certificates with ones from [letsencrypt](https://letsencrypt.org/).*
 
+To instal just run `docker-compose build && docker-compose up`.
+
 ___
 
 ## Database
